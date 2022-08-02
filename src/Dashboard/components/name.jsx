@@ -229,808 +229,808 @@ import SearchIndex from ".";
 // import IndexTableWithAllElementsExample from "./Table2";
 
 function Fullgrid() {
-  const [selectionType, setSelectionType] = useState("checkbox");
-  const [selected, setSelected] = useState(0);
-  const handleTabChange = useCallback(
-    (selectedTabIndex) => setSelected(selectedTabIndex),
-    []
-  );
-  const tabs = [
-    {
-      id: "all-customers-1",
-      content: "All",
-      accessibilityLabel: "All customers",
-      panelID: "all-customers-content-1",
-     columns :[
+    const [selectionType, setSelectionType] = useState("checkbox");
+    const [selected, setSelected] = useState(0);
+    const handleTabChange = useCallback(
+        (selectedTabIndex) => setSelected(selectedTabIndex),
+        []
+    );
+    const tabs = [
         {
-          title: "",
-          dataIndex: "thumbnail",
+            id: "all-customers-1",
+            content: "All",
+            accessibilityLabel: "All customers",
+            panelID: "all-customers-content-1",
+            columns: [
+                {
+                    title: "",
+                    dataIndex: "thumbnail",
+                },
+                {
+                    title: "Name",
+                    dataIndex: ["name"],
+                    render: (text) => <a>{text}</a>,
+                },
+                {
+                    title: "status",
+                    dataIndex: "status",
+                },
+                {
+                    title: "inventory",
+                    dataIndex: "inventory",
+                },
+                {
+                    title: "Type",
+                    dataIndex: "type",
+                },
+                {
+                    title: "vendor",
+                    dataIndex: "vendor",
+                },
+            ],
+            data: [
+                {
+                    key: "1",
+                    thumbnail: (
+                        <>
+                            <Thumbnail
+                                source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
+                                alt="Black choker necklace"
+                                size="small"
+                            />
+                        </>
+                    ),
+                    name: "John Brown",
+                    status: <Badge status="success">Active</Badge>,
+                    inventory: (
+                        <TextStyle>
+                            <TextStyle variation="negative">1 in stock</TextStyle> for 4 variants
+                        </TextStyle>
+                    ),
+                    type: "duffel bags",
+                    vendor: "Gimmy choo",
+                },
+                {
+                    key: "2",
+                    thumbnail: (
+                        <>
+                            <Thumbnail
+                                source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
+                                alt="Black choker necklace"
+                                size="small"
+                            />
+                        </>
+                    ),
+                    name: "Jim Green",
+                    status: <Badge status="warning">Expired</Badge>,
+                    inventory: (
+                        <TextStyle>
+                            <TextStyle variation="negative">0 in stock</TextStyle>
+                        </TextStyle>
+                    ),
+                    type: "duffel bags",
+                    vendor: "hermes",
+                },
+                {
+                    key: "3",
+                    thumbnail: (
+                        <>
+                            <Thumbnail
+                                source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
+                                alt="Black choker necklace"
+                                size="small"
+                            />
+                        </>
+                    ),
+                    name: "Joe Black",
+                    status: <Badge status="success">Active</Badge>,
+                    inventory: (
+                        <TextStyle>
+                            <TextStyle variation="negative">1 in stock</TextStyle>
+                        </TextStyle>
+                    ),
+                    type: "",
+                    vendor: "Givechy",
+                },
+                {
+                    key: "4",
+                    thumbnail: (
+                        <>
+                            <Thumbnail
+                                source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
+                                alt="Black choker necklace"
+                                size="small"
+                            />
+                        </>
+                    ),
+                    name: "Joe Black",
+                    status: <Badge status="warning">Expired</Badge>,
+                    inventory: (
+                        <TextStyle>
+                            <TextStyle variation="negative">1 in stock</TextStyle> for 4 variants
+                        </TextStyle>
+                    ),
+                    type: "",
+                    vendor: "selvetro fremaggo",
+                },
+                {
+                    key: "5",
+                    thumbnail: (
+                        <>
+                            <Thumbnail
+                                source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
+                                alt="Black choker necklace"
+                                size="small"
+                            />
+                        </>
+                    ),
+                    name: "Joe Black",
+                    status: <Badge status="success">Active</Badge>,
+                    inventory: (
+                        <TextStyle>
+                            <TextStyle variation="negative">1 in stock</TextStyle>
+                        </TextStyle>
+                    ),
+                    type: "",
+                    vendor: "Gimmy choo",
+                },
+                {
+                    key: "6",
+                    thumbnail: (
+                        <>
+                            <Thumbnail
+                                source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
+                                alt="Black choker necklace"
+                                size="small"
+                            />
+                        </>
+                    ),
+                    name: "Joe Black",
+                    status: <Badge status="warning">draft</Badge>,
+                    inventory: (
+                        <TextStyle>
+                            <TextStyle variation="negative">1 in stock</TextStyle> for 4 variants
+                        </TextStyle>
+                    ),
+                    type: "duffel bags",
+                    vendor: "Gimmy choo",
+                },
+                // {
+                //   key: "4",
+                //   name: "Disabled User",
+                //   age: 99,
+                //   address: "Sidney No. 1 Lake Park",
+                // },
+            ]
         },
         {
-          title: "Name",
-          dataIndex: ["name"],
-          render: (text) => <a>{text}</a>,
-        },
-        {
-          title: "status",
-          dataIndex: "status",
-        },
-        {
-          title: "inventory",
-          dataIndex: "inventory",
-        },
-        {
-          title: "Type",
-          dataIndex: "type",
-        },
-        {
-          title: "vendor",
-          dataIndex: "vendor",
-        },
-      ],
-       data : [
-        {
-          key: "1",
-          thumbnail: (
-            <>
-              <Thumbnail
-                source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
-                alt="Black choker necklace"
-                size="small"
-              />
-            </>
-          ),
-          name: "John Brown",
-          status: <Badge status="success">Active</Badge>,
-          inventory: (
-            <TextStyle>
-              <TextStyle variation="negative">1 in stock</TextStyle> for 4 variants
-            </TextStyle>
-          ),
-          type: "duffel bags",
-          vendor: "Gimmy choo",
-        },
-        {
-          key: "2",
-          thumbnail: (
-            <>
-              <Thumbnail
-                source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
-                alt="Black choker necklace"
-                size="small"
-              />
-            </>
-          ),
-          name: "Jim Green",
-          status: <Badge status="warning">Expired</Badge>,
-          inventory: (
-            <TextStyle>
-              <TextStyle variation="negative">0 in stock</TextStyle> 
-            </TextStyle>
-          ),
-          type: "duffel bags",
-          vendor: "hermes",
-        },
-        {
-          key: "3",
-          thumbnail: (
-            <>
-              <Thumbnail
-                source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
-                alt="Black choker necklace"
-                size="small"
-              />
-            </>
-          ),
-          name: "Joe Black",
-          status: <Badge status="success">Active</Badge>,
-          inventory: (
-            <TextStyle>
-              <TextStyle variation="negative">1 in stock</TextStyle>
-            </TextStyle>
-          ),
-          type: "",
-          vendor: "Givechy",
-        },
-        {
-          key: "4",
-          thumbnail: (
-            <>
-              <Thumbnail
-                source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
-                alt="Black choker necklace"
-                size="small"
-              />
-            </>
-          ),
-          name: "Joe Black",
-          status: <Badge status="warning">Expired</Badge>,
-          inventory: (
-            <TextStyle>
-              <TextStyle variation="negative">1 in stock</TextStyle> for 4 variants
-            </TextStyle>
-          ),
-          type: "",
-          vendor: "selvetro fremaggo",
-        },
-        {
-          key: "5",
-          thumbnail: (
-            <>
-              <Thumbnail
-                source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
-                alt="Black choker necklace"
-                size="small"
-              />
-            </>
-          ),
-          name: "Joe Black",
-          status: <Badge status="success">Active</Badge>,
-          inventory: (
-            <TextStyle>
-              <TextStyle variation="negative">1 in stock</TextStyle> 
-            </TextStyle>
-          ),
-          type: "",
-          vendor: "Gimmy choo",
-        },
-        {
-          key: "6",
-          thumbnail: (
-            <>
-              <Thumbnail
-                source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
-                alt="Black choker necklace"
-                size="small"
-              />
-            </>
-          ),
-          name: "Joe Black",
-          status: <Badge status="warning">draft</Badge>,
-          inventory: (
-            <TextStyle>
-              <TextStyle variation="negative">1 in stock</TextStyle> for 4 variants
-            </TextStyle>
-          ),
-          type: "duffel bags",
-          vendor: "Gimmy choo",
-        },
-        // {
-        //   key: "4",
-        //   name: "Disabled User",
-        //   age: 99,
-        //   address: "Sidney No. 1 Lake Park",
-        // },
-      ]
-    },
-    {
-      id: "accepts-marketing-1",
-      content: "Accepts marketing",
-      panelID: "accepts-marketing-content-1",
-      columns :[
-        {
-          title: "",
-          dataIndex: "thumbnail",
-        },
-        {
-          title: "Name",
-          dataIndex: ["name"],
-          render: (text) => <a>{text}</a>,
-        },
-        {
-          title: "status",
-          dataIndex: "status",
-        },
-        {
-          title: "inventory",
-          dataIndex: "inventory",
-        },
-        {
-          title: "Type",
-          dataIndex: "type",
-        },
-        {
-          title: "vendor",
-          dataIndex: "vendor",
-        },
-      ],
-       data : [
-        {
-          key: "1",
-          thumbnail: (
-            <>
-              <Thumbnail
-                source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
-                alt="Black choker necklace"
-                size="small"
-              />
-            </>
-          ),
-          name: "John Brown 2",
-          status: <Badge status="warning">Active</Badge>,
-          inventory: (
-            <TextStyle>
-              <TextStyle variation="negative">1 in stock</TextStyle> for 4 variants
-            </TextStyle>
-          ),
-          type: "duffel bags",
-          vendor: "Gimmy choo",
-        },
-        {
-          key: "2",
-          thumbnail: (
-            <>
-              <Thumbnail
-                source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
-                alt="Black choker necklace"
-                size="small"
-              />
-            </>
-          ),
-          name: "Jim Green",
-          status: <Badge status="warning">Expired</Badge>,
-          inventory: (
-            <TextStyle>
-              <TextStyle variation="negative">0 in stock</TextStyle> 
-            </TextStyle>
-          ),
-          type: "duffel bags",
-          vendor: "hermes",
-        },
-		{
-			key: "3",
-			thumbnail: (
-			  <>
-				<Thumbnail
-				  source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
-				  alt="Black choker necklace"
-				  size="small"
-				/>
-			  </>
-			),
-			name: "Jim Green",
-			status: <Badge status="warning">Expired</Badge>,
-			inventory: (
-			  <TextStyle>
-				<TextStyle variation="negative">0 in stock</TextStyle> 
-			  </TextStyle>
-			),
-			type: "duffel bags",
-			vendor: "hermes",
-		  },
-		  {
-			key: "4",
-			thumbnail: (
-			  <>
-				<Thumbnail
-				  source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
-				  alt="Black choker necklace"
-				  size="small"
-				/>
-			  </>
-			),
-			name: "Jim Green",
-			status: <Badge status="warning">Expired</Badge>,
-			inventory: (
-			  <TextStyle>
-				<TextStyle variation="negative">0 in stock</TextStyle> 
-			  </TextStyle>
-			),
-			type: "duffel bags",
-			vendor: "hermes",
-		  },
-		  {
-			key: "2",
-			thumbnail: (
-			  <>
-				<Thumbnail
-				  source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
-				  alt="Black choker necklace"
-				  size="small"
-				/>
-			  </>
-			),
-			name: "Jim Green",
-			status: <Badge status="warning">Expired</Badge>,
-			inventory: (
-			  <TextStyle>
-				<TextStyle variation="negative">0 in stock</TextStyle> 
-			  </TextStyle>
-			),
-			type: "duffel bags",
-			vendor: "hermes",
-		  },
-		  {
-			key: "2",
-			thumbnail: (
-			  <>
-				<Thumbnail
-				  source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
-				  alt="Black choker necklace"
-				  size="small"
-				/>
-			  </>
-			),
-			name: "Jim Green",
-			status: <Badge status="warning">Expired</Badge>,
-			inventory: (
-			  <TextStyle>
-				<TextStyle variation="negative">0 in stock</TextStyle> 
-			  </TextStyle>
-			),
-			type: "duffel bags",
-			vendor: "hermes",
-		  },
-		  {
-			key: "2",
-			thumbnail: (
-			  <>
-				<Thumbnail
-				  source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
-				  alt="Black choker necklace"
-				  size="small"
-				/>
-			  </>
-			),
-			name: "Jim Green",
-			status: <Badge status="warning">Expired</Badge>,
-			inventory: (
-			  <TextStyle>
-				<TextStyle variation="negative">0 in stock</TextStyle> 
-			  </TextStyle>
-			),
-			type: "duffel bags",
-			vendor: "hermes",
-		  },
-		  {
-			key: "2",
-			thumbnail: (
-			  <>
-				<Thumbnail
-				  source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
-				  alt="Black choker necklace"
-				  size="small"
-				/>
-			  </>
-			),
-			name: "Jim Green",
-			status: <Badge status="warning">Expired</Badge>,
-			inventory: (
-			  <TextStyle>
-				<TextStyle variation="negative">0 in stock</TextStyle> 
-			  </TextStyle>
-			),
-			type: "duffel bags",
-			vendor: "hermes",
-		  },
-		  {
-			key: "2",
-			thumbnail: (
-			  <>
-				<Thumbnail
-				  source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
-				  alt="Black choker necklace"
-				  size="small"
-				/>
-			  </>
-			),
-			name: "Jim Green",
-			status: <Badge status="warning">Expired</Badge>,
-			inventory: (
-			  <TextStyle>
-				<TextStyle variation="negative">0 in stock</TextStyle> 
-			  </TextStyle>
-			),
-			type: "duffel bags",
-			vendor: "hermes",
-		  },
-		  {
-			key: "2",
-			thumbnail: (
-			  <>
-				<Thumbnail
-				  source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
-				  alt="Black choker necklace"
-				  size="small"
-				/>
-			  </>
-			),
-			name: "Jim Green",
-			status: <Badge status="warning">Expired</Badge>,
-			inventory: (
-			  <TextStyle>
-				<TextStyle variation="negative">0 in stock</TextStyle> 
-			  </TextStyle>
-			),
-			type: "duffel bags",
-			vendor: "hermes",
-		  },
-		  
-		  
-		  
-        
-        // {
-        //   key: "4",
-        //   name: "Disabled User",
-        //   age: 99,
-        //   address: "Sidney No. 1 Lake Park",
-        // },
-      ]
-    },
-    {
-      id: "repeat-customers-1",
-      content: "Repeat customers",
-      panelID: "repeat-customers-content-1",
-      columns :[
-        {
-          title: "",
-          dataIndex: "thumbnail",
-        },
-        {
-          title: "Name",
-          dataIndex: ["name"],
-          render: (text) => <a>{text}</a>,
-        },
-        {
-          title: "status",
-          dataIndex: "status",
-        },
-        {
-          title: "inventory",
-          dataIndex: "inventory",
-        },
-        {
-          title: "Type",
-          dataIndex: "type",
-        },
-        {
-          title: "vendor",
-          dataIndex: "vendor",
-        },
-      ],
-       data : [
-        {
-          key: "1",
-          thumbnail: (
-            <>
-              <Thumbnail
-                source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
-                alt="Black choker necklace"
-                size="small"
-              />
-            </>
-          ),
-          name: "John Brown",
-          status: <Badge status="success">Active</Badge>,
-          inventory: (
-            <TextStyle>
-              <TextStyle variation="negative">1 in stock</TextStyle> for 4 variants
-            </TextStyle>
-          ),
-          type: "duffel bags",
-          vendor: "Gimmy choo",
-        },
-        {
-          key: "2",
-          thumbnail: (
-            <>
-              <Thumbnail
-                source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
-                alt="Black choker necklace"
-                size="small"
-              />
-            </>
-          ),
-          name: "Jim Green",
-          status: <Badge status="warning">Expired</Badge>,
-          inventory: (
-            <TextStyle>
-              <TextStyle variation="negative">0 in stock</TextStyle> 
-            </TextStyle>
-          ),
-          type: "duffel bags",
-          vendor: "hermes",
-        },
-        {
-          key: "3",
-          thumbnail: (
-            <>
-              <Thumbnail
-                source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
-                alt="Black choker necklace"
-                size="small"
-              />
-            </>
-          ),
-          name: "Joe Black",
-          status: <Badge status="success">Active</Badge>,
-          inventory: (
-            <TextStyle>
-              <TextStyle variation="negative">1 in stock</TextStyle>
-            </TextStyle>
-          ),
-          type: "",
-          vendor: "Givechy",
-        },     
-      ]
-    },
-    {
-      id: "prospects-1",
-      content: "Prospects",
-      panelID: "prospects-content-1",
-      columns :[
-        {
-          title: "",
-          dataIndex: "thumbnail",
-        },
-        {
-          title: "Name",
-          dataIndex: ["name"],
-          render: (text) => <a>{text}</a>,
-        },
-        {
-          title: "status",
-          dataIndex: "status",
-        },
-        {
-          title: "inventory",
-          dataIndex: "inventory",
-        },
-        {
-          title: "Type",
-          dataIndex: "type",
-        },
-        {
-          title: "vendor",
-          dataIndex: "vendor",
-        },
-      ],
-       data : [
-        {
-          key: "1",
-          thumbnail: (
-            <>
-              <Thumbnail
-                source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
-                alt="Black choker necklace"
-                size="small"
-              />
-            </>
-          ),
-          name: "John Brown 2",
-          status: <Badge status="warning">Active</Badge>,
-          inventory: (
-            <TextStyle>
-              <TextStyle variation="negative">1 in stock</TextStyle> for 4 variants
-            </TextStyle>
-          ),
-          type: "duffel bags",
-          vendor: "Gimmy choo",
-        },
-        {
-          key: "2",
-          thumbnail: (
-            <>
-              <Thumbnail
-                source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
-                alt="Black choker necklace"
-                size="small"
-              />
-            </>
-          ),
-          name: "Jim Green",
-          status: <Badge status="warning">Expired</Badge>,
-          inventory: (
-            <TextStyle>
-              <TextStyle variation="negative">0 in stock</TextStyle> 
-            </TextStyle>
-          ),
-          type: "duffel bags",
-          vendor: "hermes",
-        },
-        
-        
-        // {
-        //   key: "4",
-        //   name: "Disabled User",
-        //   age: 99,
-        //   address: "Sidney No. 1 Lake Park",
-        // },
-      ]
-    },
-  ];
-  // const columns = [
-  //   {
-  //     title: "",
-  //     dataIndex: "thumbnail",
-  //   },
-  //   {
-  //     title: "Name",
-  //     dataIndex: ["name"],
-  //     render: (text) => <a>{text}</a>,
-  //   },
-  //   {
-  //     title: "status",
-  //     dataIndex: "status",
-  //   },
-  //   {
-  //     title: "inventory",
-  //     dataIndex: "inventory",
-  //   },
-  //   {
-  //     title: "Type",
-  //     dataIndex: "type",
-  //   },
-  //   {
-  //     title: "vendor",
-  //     dataIndex: "vendor",
-  //   },
-  // ];
-  // const data = [
-  //   {
-  //     key: "1",
-  //     thumbnail: (
-  //       <>
-  //         <Thumbnail
-  //           source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
-  //           alt="Black choker necklace"
-  //           size="small"
-  //         />
-  //       </>
-  //     ),
-  //     name: "John Brown",
-  //     status: <Badge status="success">Active</Badge>,
-  //     inventory: (
-  //       <TextStyle>
-  //         <TextStyle variation="negative">1 in stock</TextStyle> for 4 variants
-  //       </TextStyle>
-  //     ),
-  //     type: "duffel bags",
-  //     vendor: "Gimmy choo",
-  //   },
-  //   {
-  //     key: "2",
-  //     thumbnail: (
-  //       <>
-  //         <Thumbnail
-  //           source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
-  //           alt="Black choker necklace"
-  //           size="small"
-  //         />
-  //       </>
-  //     ),
-  //     name: "Jim Green",
-  //     status: <Badge status="warning">Expired</Badge>,
-  //     inventory: (
-  //       <TextStyle>
-  //         <TextStyle variation="negative">0 in stock</TextStyle> 
-  //       </TextStyle>
-  //     ),
-  //     type: "duffel bags",
-  //     vendor: "hermes",
-  //   },
-  //   {
-  //     key: "3",
-  //     thumbnail: (
-  //       <>
-  //         <Thumbnail
-  //           source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
-  //           alt="Black choker necklace"
-  //           size="small"
-  //         />
-  //       </>
-  //     ),
-  //     name: "Joe Black",
-  //     status: <Badge status="success">Active</Badge>,
-  //     inventory: (
-  //       <TextStyle>
-  //         <TextStyle variation="negative">1 in stock</TextStyle>
-  //       </TextStyle>
-  //     ),
-  //     type: "",
-  //     vendor: "Givechy",
-  //   },
-  //   {
-  //     key: "4",
-  //     thumbnail: (
-  //       <>
-  //         <Thumbnail
-  //           source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
-  //           alt="Black choker necklace"
-  //           size="small"
-  //         />
-  //       </>
-  //     ),
-  //     name: "Joe Black",
-  //     status: <Badge status="warning">Expired</Badge>,
-  //     inventory: (
-  //       <TextStyle>
-  //         <TextStyle variation="negative">1 in stock</TextStyle> for 4 variants
-  //       </TextStyle>
-  //     ),
-  //     type: "",
-  //     vendor: "selvetro fremaggo",
-  //   },
-  //   {
-  //     key: "5",
-  //     thumbnail: (
-  //       <>
-  //         <Thumbnail
-  //           source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
-  //           alt="Black choker necklace"
-  //           size="small"
-  //         />
-  //       </>
-  //     ),
-  //     name: "Joe Black",
-  //     status: <Badge status="success">Active</Badge>,
-  //     inventory: (
-  //       <TextStyle>
-  //         <TextStyle variation="negative">1 in stock</TextStyle> 
-  //       </TextStyle>
-  //     ),
-  //     type: "",
-  //     vendor: "Gimmy choo",
-  //   },
-  //   {
-  //     key: "6",
-  //     thumbnail: (
-  //       <>
-  //         <Thumbnail
-  //           source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
-  //           alt="Black choker necklace"
-  //           size="small"
-  //         />
-  //       </>
-  //     ),
-  //     name: "Joe Black",
-  //     status: <Badge status="warning">draft</Badge>,
-  //     inventory: (
-  //       <TextStyle>
-  //         <TextStyle variation="negative">1 in stock</TextStyle> for 4 variants
-  //       </TextStyle>
-  //     ),
-  //     type: "duffel bags",
-  //     vendor: "Gimmy choo",
-  //   },
-  //   // {
-  //   //   key: "4",
-  //   //   name: "Disabled User",
-  //   //   age: 99,
-  //   //   address: "Sidney No. 1 Lake Park",
-  //   // },
-  // ]; // rowSelection object indicates the need for row selection
+            id: "accepts-marketing-1",
+            content: "Accepts marketing",
+            panelID: "accepts-marketing-content-1",
+            columns: [
+                {
+                    title: "",
+                    dataIndex: "thumbnail",
+                },
+                {
+                    title: "Name",
+                    dataIndex: ["name"],
+                    render: (text) => <a>{text}</a>,
+                },
+                {
+                    title: "status",
+                    dataIndex: "status",
+                },
+                {
+                    title: "inventory",
+                    dataIndex: "inventory",
+                },
+                {
+                    title: "Type",
+                    dataIndex: "type",
+                },
+                {
+                    title: "vendor",
+                    dataIndex: "vendor",
+                },
+            ],
+            data: [
+                {
+                    key: "1",
+                    thumbnail: (
+                        <>
+                            <Thumbnail
+                                source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
+                                alt="Black choker necklace"
+                                size="small"
+                            />
+                        </>
+                    ),
+                    name: "John Brown 2",
+                    status: <Badge status="warning">Active</Badge>,
+                    inventory: (
+                        <TextStyle>
+                            <TextStyle variation="negative">1 in stock</TextStyle> for 4 variants
+                        </TextStyle>
+                    ),
+                    type: "duffel bags",
+                    vendor: "Gimmy choo",
+                },
+                {
+                    key: "2",
+                    thumbnail: (
+                        <>
+                            <Thumbnail
+                                source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
+                                alt="Black choker necklace"
+                                size="small"
+                            />
+                        </>
+                    ),
+                    name: "Jim Green",
+                    status: <Badge status="warning">Expired</Badge>,
+                    inventory: (
+                        <TextStyle>
+                            <TextStyle variation="negative">0 in stock</TextStyle>
+                        </TextStyle>
+                    ),
+                    type: "duffel bags",
+                    vendor: "hermes",
+                },
+                {
+                    key: "3",
+                    thumbnail: (
+                        <>
+                            <Thumbnail
+                                source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
+                                alt="Black choker necklace"
+                                size="small"
+                            />
+                        </>
+                    ),
+                    name: "Jim Green",
+                    status: <Badge status="warning">Expired</Badge>,
+                    inventory: (
+                        <TextStyle>
+                            <TextStyle variation="negative">0 in stock</TextStyle>
+                        </TextStyle>
+                    ),
+                    type: "duffel bags",
+                    vendor: "hermes",
+                },
+                {
+                    key: "4",
+                    thumbnail: (
+                        <>
+                            <Thumbnail
+                                source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
+                                alt="Black choker necklace"
+                                size="small"
+                            />
+                        </>
+                    ),
+                    name: "Jim Green",
+                    status: <Badge status="warning">Expired</Badge>,
+                    inventory: (
+                        <TextStyle>
+                            <TextStyle variation="negative">0 in stock</TextStyle>
+                        </TextStyle>
+                    ),
+                    type: "duffel bags",
+                    vendor: "hermes",
+                },
+                {
+                    key: "2",
+                    thumbnail: (
+                        <>
+                            <Thumbnail
+                                source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
+                                alt="Black choker necklace"
+                                size="small"
+                            />
+                        </>
+                    ),
+                    name: "Jim Green",
+                    status: <Badge status="warning">Expired</Badge>,
+                    inventory: (
+                        <TextStyle>
+                            <TextStyle variation="negative">0 in stock</TextStyle>
+                        </TextStyle>
+                    ),
+                    type: "duffel bags",
+                    vendor: "hermes",
+                },
+                {
+                    key: "2",
+                    thumbnail: (
+                        <>
+                            <Thumbnail
+                                source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
+                                alt="Black choker necklace"
+                                size="small"
+                            />
+                        </>
+                    ),
+                    name: "Jim Green",
+                    status: <Badge status="warning">Expired</Badge>,
+                    inventory: (
+                        <TextStyle>
+                            <TextStyle variation="negative">0 in stock</TextStyle>
+                        </TextStyle>
+                    ),
+                    type: "duffel bags",
+                    vendor: "hermes",
+                },
+                {
+                    key: "2",
+                    thumbnail: (
+                        <>
+                            <Thumbnail
+                                source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
+                                alt="Black choker necklace"
+                                size="small"
+                            />
+                        </>
+                    ),
+                    name: "Jim Green",
+                    status: <Badge status="warning">Expired</Badge>,
+                    inventory: (
+                        <TextStyle>
+                            <TextStyle variation="negative">0 in stock</TextStyle>
+                        </TextStyle>
+                    ),
+                    type: "duffel bags",
+                    vendor: "hermes",
+                },
+                {
+                    key: "2",
+                    thumbnail: (
+                        <>
+                            <Thumbnail
+                                source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
+                                alt="Black choker necklace"
+                                size="small"
+                            />
+                        </>
+                    ),
+                    name: "Jim Green",
+                    status: <Badge status="warning">Expired</Badge>,
+                    inventory: (
+                        <TextStyle>
+                            <TextStyle variation="negative">0 in stock</TextStyle>
+                        </TextStyle>
+                    ),
+                    type: "duffel bags",
+                    vendor: "hermes",
+                },
+                {
+                    key: "2",
+                    thumbnail: (
+                        <>
+                            <Thumbnail
+                                source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
+                                alt="Black choker necklace"
+                                size="small"
+                            />
+                        </>
+                    ),
+                    name: "Jim Green",
+                    status: <Badge status="warning">Expired</Badge>,
+                    inventory: (
+                        <TextStyle>
+                            <TextStyle variation="negative">0 in stock</TextStyle>
+                        </TextStyle>
+                    ),
+                    type: "duffel bags",
+                    vendor: "hermes",
+                },
+                {
+                    key: "2",
+                    thumbnail: (
+                        <>
+                            <Thumbnail
+                                source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
+                                alt="Black choker necklace"
+                                size="small"
+                            />
+                        </>
+                    ),
+                    name: "Jim Green",
+                    status: <Badge status="warning">Expired</Badge>,
+                    inventory: (
+                        <TextStyle>
+                            <TextStyle variation="negative">0 in stock</TextStyle>
+                        </TextStyle>
+                    ),
+                    type: "duffel bags",
+                    vendor: "hermes",
+                },
 
-  const rowSelection = {
-    onChange: (selectedRowKeys, selectedRows) => {
-      console.log(
-        `selectedRowKeys: ${selectedRowKeys}`,
-        "selectedRows: ",
-        selectedRows
-      );
-    },
-    getCheckboxProps: (record) => ({
-      disabled: record.name === "Disabled User",
-      // Column configuration not to be checked
-      name: record.name,
-    }),
-  };
-  return (
-    <Card>
-      <Tabs tabs={tabs} selected={selected} onSelect={handleTabChange}>
-        <Card.Section>
-          <SearchIndex />      
-          <Table
-            rowSelection={{
-              type: selectionType,
-              ...rowSelection,
-            }}
-            columns={tabs[selected].columns}
-            dataSource={tabs[selected].data}
-          />
-        </Card.Section>
-      </Tabs>
-    </Card>
-  );
+
+
+
+                // {
+                //   key: "4",
+                //   name: "Disabled User",
+                //   age: 99,
+                //   address: "Sidney No. 1 Lake Park",
+                // },
+            ]
+        },
+        {
+            id: "repeat-customers-1",
+            content: "Repeat customers",
+            panelID: "repeat-customers-content-1",
+            columns: [
+                {
+                    title: "",
+                    dataIndex: "thumbnail",
+                },
+                {
+                    title: "Name",
+                    dataIndex: ["name"],
+                    render: (text) => <a>{text}</a>,
+                },
+                {
+                    title: "status",
+                    dataIndex: "status",
+                },
+                {
+                    title: "inventory",
+                    dataIndex: "inventory",
+                },
+                {
+                    title: "Type",
+                    dataIndex: "type",
+                },
+                {
+                    title: "vendor",
+                    dataIndex: "vendor",
+                },
+            ],
+            data: [
+                {
+                    key: "1",
+                    thumbnail: (
+                        <>
+                            <Thumbnail
+                                source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
+                                alt="Black choker necklace"
+                                size="small"
+                            />
+                        </>
+                    ),
+                    name: "John Brown",
+                    status: <Badge status="success">Active</Badge>,
+                    inventory: (
+                        <TextStyle>
+                            <TextStyle variation="negative">1 in stock</TextStyle> for 4 variants
+                        </TextStyle>
+                    ),
+                    type: "duffel bags",
+                    vendor: "Gimmy choo",
+                },
+                {
+                    key: "2",
+                    thumbnail: (
+                        <>
+                            <Thumbnail
+                                source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
+                                alt="Black choker necklace"
+                                size="small"
+                            />
+                        </>
+                    ),
+                    name: "Jim Green",
+                    status: <Badge status="warning">Expired</Badge>,
+                    inventory: (
+                        <TextStyle>
+                            <TextStyle variation="negative">0 in stock</TextStyle>
+                        </TextStyle>
+                    ),
+                    type: "duffel bags",
+                    vendor: "hermes",
+                },
+                {
+                    key: "3",
+                    thumbnail: (
+                        <>
+                            <Thumbnail
+                                source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
+                                alt="Black choker necklace"
+                                size="small"
+                            />
+                        </>
+                    ),
+                    name: "Joe Black",
+                    status: <Badge status="success">Active</Badge>,
+                    inventory: (
+                        <TextStyle>
+                            <TextStyle variation="negative">1 in stock</TextStyle>
+                        </TextStyle>
+                    ),
+                    type: "",
+                    vendor: "Givechy",
+                },
+            ]
+        },
+        {
+            id: "prospects-1",
+            content: "Prospects",
+            panelID: "prospects-content-1",
+            columns: [
+                {
+                    title: "",
+                    dataIndex: "thumbnail",
+                },
+                {
+                    title: "Name",
+                    dataIndex: ["name"],
+                    render: (text) => <a>{text}</a>,
+                },
+                {
+                    title: "status",
+                    dataIndex: "status",
+                },
+                {
+                    title: "inventory",
+                    dataIndex: "inventory",
+                },
+                {
+                    title: "Type",
+                    dataIndex: "type",
+                },
+                {
+                    title: "vendor",
+                    dataIndex: "vendor",
+                },
+            ],
+            data: [
+                {
+                    key: "1",
+                    thumbnail: (
+                        <>
+                            <Thumbnail
+                                source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
+                                alt="Black choker necklace"
+                                size="small"
+                            />
+                        </>
+                    ),
+                    name: "John Brown 2",
+                    status: <Badge status="warning">Active</Badge>,
+                    inventory: (
+                        <TextStyle>
+                            <TextStyle variation="negative">1 in stock</TextStyle> for 4 variants
+                        </TextStyle>
+                    ),
+                    type: "duffel bags",
+                    vendor: "Gimmy choo",
+                },
+                {
+                    key: "2",
+                    thumbnail: (
+                        <>
+                            <Thumbnail
+                                source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
+                                alt="Black choker necklace"
+                                size="small"
+                            />
+                        </>
+                    ),
+                    name: "Jim Green",
+                    status: <Badge status="warning">Expired</Badge>,
+                    inventory: (
+                        <TextStyle>
+                            <TextStyle variation="negative">0 in stock</TextStyle>
+                        </TextStyle>
+                    ),
+                    type: "duffel bags",
+                    vendor: "hermes",
+                },
+
+
+                // {
+                //   key: "4",
+                //   name: "Disabled User",
+                //   age: 99,
+                //   address: "Sidney No. 1 Lake Park",
+                // },
+            ]
+        },
+    ];
+    // const columns = [
+    //   {
+    //     title: "",
+    //     dataIndex: "thumbnail",
+    //   },
+    //   {
+    //     title: "Name",
+    //     dataIndex: ["name"],
+    //     render: (text) => <a>{text}</a>,
+    //   },
+    //   {
+    //     title: "status",
+    //     dataIndex: "status",
+    //   },
+    //   {
+    //     title: "inventory",
+    //     dataIndex: "inventory",
+    //   },
+    //   {
+    //     title: "Type",
+    //     dataIndex: "type",
+    //   },
+    //   {
+    //     title: "vendor",
+    //     dataIndex: "vendor",
+    //   },
+    // ];
+    // const data = [
+    //   {
+    //     key: "1",
+    //     thumbnail: (
+    //       <>
+    //         <Thumbnail
+    //           source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
+    //           alt="Black choker necklace"
+    //           size="small"
+    //         />
+    //       </>
+    //     ),
+    //     name: "John Brown",
+    //     status: <Badge status="success">Active</Badge>,
+    //     inventory: (
+    //       <TextStyle>
+    //         <TextStyle variation="negative">1 in stock</TextStyle> for 4 variants
+    //       </TextStyle>
+    //     ),
+    //     type: "duffel bags",
+    //     vendor: "Gimmy choo",
+    //   },
+    //   {
+    //     key: "2",
+    //     thumbnail: (
+    //       <>
+    //         <Thumbnail
+    //           source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
+    //           alt="Black choker necklace"
+    //           size="small"
+    //         />
+    //       </>
+    //     ),
+    //     name: "Jim Green",
+    //     status: <Badge status="warning">Expired</Badge>,
+    //     inventory: (
+    //       <TextStyle>
+    //         <TextStyle variation="negative">0 in stock</TextStyle> 
+    //       </TextStyle>
+    //     ),
+    //     type: "duffel bags",
+    //     vendor: "hermes",
+    //   },
+    //   {
+    //     key: "3",
+    //     thumbnail: (
+    //       <>
+    //         <Thumbnail
+    //           source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
+    //           alt="Black choker necklace"
+    //           size="small"
+    //         />
+    //       </>
+    //     ),
+    //     name: "Joe Black",
+    //     status: <Badge status="success">Active</Badge>,
+    //     inventory: (
+    //       <TextStyle>
+    //         <TextStyle variation="negative">1 in stock</TextStyle>
+    //       </TextStyle>
+    //     ),
+    //     type: "",
+    //     vendor: "Givechy",
+    //   },
+    //   {
+    //     key: "4",
+    //     thumbnail: (
+    //       <>
+    //         <Thumbnail
+    //           source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
+    //           alt="Black choker necklace"
+    //           size="small"
+    //         />
+    //       </>
+    //     ),
+    //     name: "Joe Black",
+    //     status: <Badge status="warning">Expired</Badge>,
+    //     inventory: (
+    //       <TextStyle>
+    //         <TextStyle variation="negative">1 in stock</TextStyle> for 4 variants
+    //       </TextStyle>
+    //     ),
+    //     type: "",
+    //     vendor: "selvetro fremaggo",
+    //   },
+    //   {
+    //     key: "5",
+    //     thumbnail: (
+    //       <>
+    //         <Thumbnail
+    //           source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
+    //           alt="Black choker necklace"
+    //           size="small"
+    //         />
+    //       </>
+    //     ),
+    //     name: "Joe Black",
+    //     status: <Badge status="success">Active</Badge>,
+    //     inventory: (
+    //       <TextStyle>
+    //         <TextStyle variation="negative">1 in stock</TextStyle> 
+    //       </TextStyle>
+    //     ),
+    //     type: "",
+    //     vendor: "Gimmy choo",
+    //   },
+    //   {
+    //     key: "6",
+    //     thumbnail: (
+    //       <>
+    //         <Thumbnail
+    //           source="https://burst.shopifycdn.com/photos/black-leather-choker-necklace_373x@2x.jpg"
+    //           alt="Black choker necklace"
+    //           size="small"
+    //         />
+    //       </>
+    //     ),
+    //     name: "Joe Black",
+    //     status: <Badge status="warning">draft</Badge>,
+    //     inventory: (
+    //       <TextStyle>
+    //         <TextStyle variation="negative">1 in stock</TextStyle> for 4 variants
+    //       </TextStyle>
+    //     ),
+    //     type: "duffel bags",
+    //     vendor: "Gimmy choo",
+    //   },
+    //   // {
+    //   //   key: "4",
+    //   //   name: "Disabled User",
+    //   //   age: 99,
+    //   //   address: "Sidney No. 1 Lake Park",
+    //   // },
+    // ]; // rowSelection object indicates the need for row selection
+
+    const rowSelection = {
+        onChange: (selectedRowKeys, selectedRows) => {
+            console.log(
+                `selectedRowKeys: ${selectedRowKeys}`,
+                "selectedRows: ",
+                selectedRows
+            );
+        },
+        getCheckboxProps: (record) => ({
+            disabled: record.name === "Disabled User",
+            // Column configuration not to be checked
+            name: record.name,
+        }),
+    };
+    return (
+        <Card>
+            <Tabs tabs={tabs} selected={selected} onSelect={handleTabChange}>
+                <Card.Section>
+                    <SearchIndex />
+                    <Table
+                        rowSelection={{
+                            type: selectionType,
+                            ...rowSelection,
+                        }}
+                        columns={tabs[selected].columns}
+                        dataSource={tabs[selected].data}
+                    />
+                </Card.Section>
+            </Tabs>
+        </Card>
+    );
 }
 export default Fullgrid;

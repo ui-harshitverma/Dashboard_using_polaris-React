@@ -51,22 +51,22 @@ function Dashboard2() {
 										<Tab />
 									</Layout.Section>
 									<Layout.Section>
-										<Download/>
+										<Download />
 									</Layout.Section>
 									<Layout.Section>
-										<VideoCard/>
+										<VideoCard />
 									</Layout.Section>
 									<Layout.Section>
-										<Inventory/>
+										<Inventory />
 									</Layout.Section>
 									<Layout.Section>
-										<CardProducts/>
+										<CardProducts />
 									</Layout.Section>
 									<Layout.Section>
-										<FAQ/>
+										<FAQ />
 									</Layout.Section>
 									<Layout.Section>
-										<CardIMg/>
+										<CardIMg />
 									</Layout.Section>
 
 								</Layout>
@@ -78,7 +78,7 @@ function Dashboard2() {
 										<BarChartSection />
 									</Layout.Section>
 									<Layout.Section>
-										<LatestUpdates/>
+										<LatestUpdates />
 									</Layout.Section>
 								</Layout>
 							</Grid.Cell>

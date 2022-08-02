@@ -6,12 +6,14 @@ import reportWebVitals from "./reportWebVitals";
 import { AppProvider } from "@shopify/polaris";
 import "@shopify/polaris/build/esm/styles.css";
 import { BrowserRouter, Link as ReactRouterLink } from 'react-router-dom';
+import translations from '@shopify/polaris/locales/en.json';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode>
 		<BrowserRouter>
 			<AppProvider
+			    i18n={translations}
 				linkComponent={Link}
 			>
 				<App />
