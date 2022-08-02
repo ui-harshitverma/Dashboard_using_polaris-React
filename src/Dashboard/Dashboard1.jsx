@@ -17,9 +17,18 @@ import { Tab } from './components/Tab'
 function Dashboard1() {
 	return (
 		<>
-			<Page fullWidth>
+			<Page fullWidth title='Welcome To Dashboard 1' subtitle={
+				<Stack vertical={true} spacing="tight">
+				{/* <DisplayText size="large">Welcome To Dashboard 1</DisplayText> */}
+				<Stack spacing="extraTight">
+					<TextStyle>Check out the recents progress in your store</TextStyle>
+					<Badge>Last Refresh : 14 minutes ago,</Badge>
+					<Badge status="critical">License Expired</Badge>
+				</Stack>
+			</Stack>
+			}>
 				<Layout>
-					<Layout.Section>
+					{/* <Layout.Section>
 						<TextContainer>
 							<Stack vertical={true} spacing="tight">
 								<DisplayText size="large">Welcome To Dashboard 1</DisplayText>
@@ -30,7 +39,7 @@ function Dashboard1() {
 								</Stack>
 							</Stack>
 						</TextContainer>
-					</Layout.Section>
+					</Layout.Section> */}
 					<Layout.Section>
 						<Grid columns={{ sm: 3 }}>
 							<Grid.Cell columnSpan={{ xs: 6, sm: 4, md: 4, lg: 8, xl: 8 }}>
