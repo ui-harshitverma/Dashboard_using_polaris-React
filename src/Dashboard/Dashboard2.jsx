@@ -69,8 +69,6 @@ function Dashboard2() {
 										<CardIMg/>
 									</Layout.Section>
 
-
-
 								</Layout>
 
 							</Grid.Cell>
