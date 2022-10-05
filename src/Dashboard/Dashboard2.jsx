@@ -1,8 +1,6 @@
-import { Badge, Grid, TextStyle, Stack, DisplayText, TextContainer, Layout, Page, Card, Link } from '@shopify/polaris'
+import { Grid, TextStyle, Stack, TextContainer, Layout, Page, Link } from '@shopify/polaris'
 import React from 'react'
-import AccountInfoBar from './components/AccountInfoBar'
-import { AllProducts } from './components/AllProducts'
-import BarChart from './components/BarChart'
+
 import BarChartSection from './components/BarChartSection'
 import CardIMg from './components/CardIMg'
 import CardProducts from './components/CartProducts'
@@ -23,15 +21,12 @@ function Dashboard2() {
 				<Layout>
 					<Layout.Section>
 						<TextContainer>
-							{/* <Stack vertical={true} spacing="tight"> */}
-							{/* <DisplayText size="large">Welcome To Dashboard 2</DisplayText> */}
 							<Stack spacing="extraTight">
 								<TextStyle>Welcome JON DOE Here's what's happening with your store today. Click{' '}
 									<Link url="https://help.shopify.com/manual">here</Link>
 									{' '}to refresh the analytics
 								</TextStyle>
 							</Stack>
-							{/* </Stack> */}
 						</TextContainer>
 					</Layout.Section>
 					<Layout.Section>

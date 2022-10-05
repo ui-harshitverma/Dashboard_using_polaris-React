@@ -5,7 +5,6 @@ import {
 	ResourceItem,
 	ResourceList,
 	Icon,
-	Avatar,
 	TextStyle,
 	Subheading,
 } from "@shopify/polaris";

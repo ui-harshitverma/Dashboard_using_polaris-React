@@ -1,7 +1,6 @@
-import { Badge, Grid, TextStyle, Stack, DisplayText, TextContainer, Layout, Page, Card } from '@shopify/polaris'
+import { Badge, Grid, TextStyle, Stack, Layout, Page, } from '@shopify/polaris'
 import React from 'react'
 import Reviews from './components/ Reviews'
-import { AccountInfo } from './components/AccountInfo'
 import { AccountInfo1 } from './components/AccountInfo1'
 import { AllProducts } from './components/AllProducts'
 import Announcement from './components/Announcement'
@@ -19,27 +18,15 @@ function Dashboard1() {
 		<>
 			<Page fullWidth title='Welcome To Dashboard 1' subtitle={
 				<Stack vertical={true} spacing="tight">
-				{/* <DisplayText size="large">Welcome To Dashboard 1</DisplayText> */}
-				<Stack spacing="extraTight">
-					<TextStyle>Check out the recents progress in your store</TextStyle>
-					<Badge>Last Refresh : 14 minutes ago,</Badge>
-					<Badge status="critical">License Expired</Badge>
+					<Stack spacing="extraTight">
+						<TextStyle>Check out the recents progress in your store</TextStyle>
+						<Badge>Last Refresh : 14 minutes ago,</Badge>
+						<Badge status="critical">License Expired</Badge>
+					</Stack>
 				</Stack>
-			</Stack>
 			}>
 				<Layout>
-					{/* <Layout.Section>
-						<TextContainer>
-							<Stack vertical={true} spacing="tight">
-								<DisplayText size="large">Welcome To Dashboard 1</DisplayText>
-								<Stack spacing="extraTight">
-									<TextStyle>Check out the recents progress in your store</TextStyle>
-									<Badge>Last Refresh : 14 minutes ago,</Badge>
-									<Badge status="critical">License Expired</Badge>
-								</Stack>
-							</Stack>
-						</TextContainer>
-					</Layout.Section> */}
+
 					<Layout.Section>
 						<Grid columns={{ sm: 3 }}>
 							<Grid.Cell columnSpan={{ xs: 6, sm: 4, md: 4, lg: 8, xl: 8 }}>
@@ -57,29 +44,29 @@ function Dashboard1() {
 										<Tab />
 									</Layout.Section>
 									<Layout.Section>
-										<Stock/>
+										<Stock />
 									</Layout.Section>
 									<Layout.Section>
-										<Reviews/>
+										<Reviews />
 									</Layout.Section>
 								</Layout>
 							</Grid.Cell>
 							<Grid.Cell columnSpan={{ xs: 6, sm: 2, md: 2, lg: 4, xl: 4 }}>
 								<Layout>
 									<Layout.Section>
-										<AllProducts/>
+										<AllProducts />
 									</Layout.Section>
 									<Layout.Section>
-										<Permission/>
+										<Permission />
 									</Layout.Section>
 									<Layout.Section>
-										<RecentActivities/>
+										<RecentActivities />
 									</Layout.Section>
 									<Layout.Section>
 										<AccountInfo1 />
 									</Layout.Section>
 									<Layout.Section>
-										<Announcement/>
+										<Announcement />
 									</Layout.Section>
 									<Layout.Section>
 										<SocialLinks />

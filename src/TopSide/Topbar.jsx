@@ -1,4 +1,3 @@
-
 import React, { useCallback, useRef, useState } from 'react';
 import { TopBar, Modal } from "@shopify/polaris";
 
@@ -7,7 +6,7 @@ const Topbar = () => {
 	const [userMenuActive, setUserMenuActive] = useState(false)
 	const [modalActive, setModalActive] = useState(false);
 	const toggleModalActive = useCallback(
-		() => setModalActive((modalActive) => !modalActive),
+		() => setModalActive((modalActive) => !modalActive), 
 		[],
 	);
 	const toggleUserMenuActive = useCallback(
@@ -56,4 +55,4 @@ const Topbar = () => {
 		</>
 	)
 }
-export default Topbar
+export default Topbar;

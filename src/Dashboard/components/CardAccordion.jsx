@@ -3,7 +3,6 @@ import React from 'react'
 import AccordionCode from './AccordionCode'
 import './CardAccordion.css'
 
-
 function CardAccordion() {
 	return (
 		<>
